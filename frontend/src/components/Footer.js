@@ -4,7 +4,7 @@ import logo from '../assets/images/logo.jpg'; // Import the logo
 
 const Footer = () => {
   return (
-    <footer className="footer pt-5 pb-4" style={{ background: '#f8f9fa' }}>
+    <footer className="footer pt-5 pb-4" style={{ background: '#EEEEEE', borderTop: '2px solid #E5E4E2' }}>
       <div className="container">
         <div className="row">
           {/* Company Description */}
@@ -24,7 +24,6 @@ const Footer = () => {
             </div>
             <p style={{ marginTop: '8px' }}>
               Pranayuv places a strong emphasis on innovation, quality, and trust.<br />
-             
             </p>
           </div>
           {/* Contact Details */}
@@ -64,10 +63,15 @@ const Footer = () => {
         </div>
         {/* Social Media Icons */}
         <div className="d-flex justify-content-center mb-3">
-         
-          <a href="https://wa.me/919676448550" className="me-3" aria-label="WhatsApp"><i className="bi bi-whatsapp"></i></a>
-          <a href="https://www.instagram.com/team_pranayuv/" className="me-3" aria-label="Instagram"><i className="bi bi-instagram"></i></a>
-          <a href="https://www.linkedin.com/company/pranayuv-technologies/" aria-label="LinkedIn"><i className="bi bi-linkedin"></i></a>
+          <a href="https://wa.me/919676448550" className="me-3" aria-label="WhatsApp">
+            <i className="bi bi-whatsapp footer-social-icon"></i>
+          </a>
+          <a href="https://www.instagram.com/team_pranayuv/" className="me-3" aria-label="Instagram">
+            <i className="bi bi-instagram footer-social-icon"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/pranayuv-technologies/" aria-label="LinkedIn">
+            <i className="bi bi-linkedin footer-social-icon"></i>
+          </a>
         </div>
         <hr className="mb-3" />
         <div className="text-center" style={{ fontSize: '0.95rem', color: '#6c757d' }}>

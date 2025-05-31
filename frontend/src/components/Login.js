@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../utils/api';
+import '../styles/Login.css'; // See CSS below
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -11,7 +12,6 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Encode credentials for Basic Auth
       const credentials = btoa(`${username}:${password}`);
       const testApi = api.create({
         baseURL: 'https://pranayuvbackendfinal-production.up.railway.app',
@@ -21,11 +21,9 @@ const Login = () => {
         },
       });
 
-      // Store credentials
       localStorage.setItem('credentials', credentials);
       localStorage.setItem('username', username);
 
-      // Try admin endpoint
       try {
         await testApi.get('/admin/getmessages');
         localStorage.setItem('role', 'ROLE_ADMIN');
@@ -33,7 +31,6 @@ const Login = () => {
         navigate('/admin-dashboard');
       } catch (error) {
         if (error.response?.status === 401 || error.response?.status === 403) {
-          // Validate user credentials with public endpoint
           await testApi.get('/pran/home');
           localStorage.setItem('role', 'ROLE_USER');
           setMessage('Login successful!');
@@ -51,59 +48,64 @@ const Login = () => {
   };
 
   return (
-    <section className="py-5 bg-light">
+    <section className="login-bg min-vh-100 d-flex align-items-center">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6 col-lg-5">
-            <h2 className="text-3xl fw-bold text-center mb-5">Login</h2>
-            <form onSubmit={handleSubmit} className="admin-form p-4">
-              <div className="mb-4">
-                <label htmlFor="username" className="form-label">Username</label>
-                <input
-                  type="text"
-                  id="username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  className="form-control"
-                  required
-                />
+            <div className="login-card p-4 shadow-sm">
+              <h2 className="login-title mb-4 text-center">Login</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="username" className="login-label">Username</label>
+                  <input
+                    type="text"
+                    id="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="login-input"
+                    required
+                    autoFocus
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="login-label">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="login-input"
+                    required
+                  />
+                </div>
+                <button type="submit" className="login-btn w-100 mt-2">
+                  Login
+                </button>
+                {message && (
+                  <div
+                    className={`mt-4 text-center fw-semibold ${
+                      message.includes('failed')
+                        ? 'login-error'
+                        : 'login-success'
+                    }`}
+                  >
+                    {message}
+                  </div>
+                )}
+              </form>
+              <div className="mt-4 text-center small">
+                <span>Don't have an account?{' '}</span>
+                <Link to="/signup" className="login-link">
+                  Sign Up
+                </Link>
               </div>
-              <div className="mb-4">
-                <label htmlFor="password" className="form-label">Password</label>
-                <input
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="form-control"
-                  required
-                />
+              <div className="mt-2 text-center small">
+                <span>Forgot password?{' '}</span>
+                <Link to="/forgot-password" className="login-link">
+                  Reset Password
+                </Link>
               </div>
-              <button type="submit" className="btn btn-primary w-100">
-                Login
-              </button>
-              {message && (
-                <p
-                  className={`mt-4 text-center ${
-                    message.includes('failed') ? 'error-message' : 'success-message'
-                  }`}
-                >
-                  {message}
-                </p>
-              )}
-            </form>
-            <p className="mt-4 text-center">
-              Don't have an account?{' '}
-              <Link to="/signup" className="text-primary hover:underline">
-                Sign Up
-              </Link>
-            </p>
-            <p className="mt-2 text-center">
-              Forgot password?{' '}
-              <Link to="/forgot-password" className="text-primary hover:underline">
-                Reset Password
-              </Link>
-            </p>
+            </div>
           </div>
         </div>
       </div>

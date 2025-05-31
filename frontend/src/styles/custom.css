@@ -215,3 +215,13 @@ a, a:link, a:visited, a:hover, a:active {
   width: 100%;
   height: 60px;
 }
+/*Footer Styles*/
+.footer-social-icon {
+  color: #111 !important;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+  vertical-align: middle;
+}
+.footer-social-icon:hover {
+  color: #007bff !important; /* Optional: blue on hover */
+}

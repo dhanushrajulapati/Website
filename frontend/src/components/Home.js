@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdLocalHospital, MdMemory, MdAttachMoney } from "react-icons/md";
+import { FaRupeeSign } from "react-icons/fa";
+
 
 // Images (replace with your actual paths)
 import blog1 from '../assets/images/blog1.jpg';
@@ -135,30 +137,31 @@ const Home = () => (
 
     {/* Features */}
     <section className="py-5">
-      <div className="container">
-        <div className="text-center mb-5">
-          <h2 className="fw-bold">Our Healthcare Solutions</h2>
-          <p className="lead text-muted">Designed with care, built for impact</p>
-        </div>
-        <div className="row g-4">
-          <FeatureCard
-            icon={<MdLocalHospital size={36} />}
-            title="Patient-Centric Design"
-            description="Our products prioritize patient comfort and caregiver convenience."
-          />
-          <FeatureCard
-            icon={<MdMemory size={36} />}
-            title="Smart Technology"
-            description="Integrated IoT solutions for modern healthcare challenges."
-          />
-          <FeatureCard
-            icon={<MdAttachMoney size={36} />}
-            title="Affordable Solutions"
-            description="High-quality healthcare products at accessible prices."
-          />
-        </div>
-      </div>
-    </section>
+  <div className="container">
+    <div className="text-center mb-5">
+      <h2 className="fw-bold">Our Healthcare Solutions</h2>
+      <p className="lead text-muted">Designed with care, built for impact</p>
+    </div>
+    <div className="row g-4">
+      <FeatureCard
+        icon={<MdLocalHospital size={36} />}
+        title="Patient-Centric Design"
+        description="Our products prioritize patient comfort and caregiver convenience."
+      />
+      <FeatureCard
+        icon={<MdMemory size={36} />}
+        title="Smart Technology"
+        description="Integrated IoT solutions for modern healthcare challenges."
+      />
+      <FeatureCard
+        icon={<FaRupeeSign size={36} />}
+        title="Affordable Solutions"
+        description="High-quality healthcare products at accessible prices."
+      />
+    </div>
+  </div>
+</section>
+
 
     {/* Incubated At */}
     <SectionWithLogos
@@ -180,7 +183,7 @@ const Home = () => (
   <section className="py-5 bg-light">
   <div className="container">
     <div className="text-center mb-5">
-      <h2 className="fw-bold">Latest Updates</h2>
+      <h2 className="fw-bold">Spotlight Stories</h2>
       <p className="lead text-muted">Stay informed with our recent activities</p>
     </div>
     <div className="row g-4">
