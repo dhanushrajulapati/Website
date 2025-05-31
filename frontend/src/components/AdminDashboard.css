@@ -1,0 +1,85 @@
+/* AdminDashboard.css */
+
+/* Ensure tables are readable on small screens */
+.table.admin-table {
+  font-size: 0.9rem;
+}
+
+.table.admin-table th,
+.table.admin-table td {
+  padding: 0.5rem 0.75rem; /* Reduced padding for smaller screens */
+  vertical-align: middle;
+}
+
+/* Responsive product image */
+.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+/* Adjust font sizes and spacing for smaller screens */
+@media (max-width: 576px) {
+  .table.admin-table {
+    font-size: 0.8rem;
+  }
+
+  .table.admin-table th,
+  .table.admin-table td {
+    padding: 0.4rem 0.5rem;
+  }
+
+  .product-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .display-5 {
+    font-size: 1.5rem; /* Smaller heading on mobile */
+  }
+
+  .h4 {
+    font-size: 1.25rem;
+  }
+
+  .h5 {
+    font-size: 1rem;
+  }
+
+  .admin-form {
+    padding: 1rem !important; /* Reduce padding on mobile */
+  }
+
+  .btn-sm {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* Ensure long text in tables wraps properly */
+.table.admin-table td {
+  word-break: break-word;
+  max-width: 200px; /* Prevent overly wide columns */
+}
+
+/* Improve button spacing on small screens */
+.d-flex.gap-2 {
+  gap: 0.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .d-flex.gap-2 {
+    gap: 1rem !important;
+  }
+}
+
+/* Ensure form inputs are full-width on mobile */
+.form-control,
+.form-check-input {
+  width: 100%;
+}
+
+/* Add subtle shadow to card for better visual hierarchy */
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
