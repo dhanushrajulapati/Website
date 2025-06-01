@@ -89,7 +89,7 @@ const Home = () => (
       <div className="animated-bg"></div>
       <div className="container text-center py-5 position-relative" style={{ zIndex: 2 }}>
         <h1 className="display-3 text-white fw-bold mb-3 fade-in-up">
-          Welcome to Pranayuv
+         Introducing Pranayuv
         </h1>
         <p className="lead mb-4 fade-in-up" style={{ animationDelay: '0.2s' }}>
           Innovating Healthcare with Empathy and Technology
@@ -105,7 +105,12 @@ const Home = () => (
       </div>
       {/* Decorative SVG Wave */}
       <div className="hero-wave">
-  <svg viewBox="0 0 1440 150" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', width: '100%', height: '90px' }}>
+  <svg
+    viewBox="0 0 1440 150"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ width: '100%', height: '10vw', minHeight: 40, maxHeight: 120, display: 'block' }}
+  >
     <defs>
       <linearGradient id="heroWaveGradient" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stopColor="#fff" stopOpacity="1" />
@@ -132,6 +137,7 @@ const Home = () => (
     </path>
   </svg>
 </div>
+
 
     </section>
 
