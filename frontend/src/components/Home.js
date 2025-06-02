@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MdLocalHospital, MdMemory, MdAttachMoney } from "react-icons/md";
+import { FaRupeeSign } from "react-icons/fa";
 
 
-// Images
+// Images (replace with your actual paths)
 import blog1 from '../assets/images/blog1.jpg';
 import blog2 from '../assets/images/blog2.jpg';
 import blog3 from '../assets/images/blog3.jpg';
@@ -83,44 +84,90 @@ const featuredBlogs = [
 const Home = () => (
   <div className="home-page">
 
-    {/* Hero Section */}
-    <section className="hero-section bg-primary text-white py-5">
-      <div className="container text-center py-5">
-        <h1 className="display-3 text-white fw-bold mb-3">Welcome to Pranayuv</h1>
-        <p className="lead mb-4">Innovating Healthcare with Empathy and Technology</p>
-        <div className="d-flex justify-content-center gap-3">
-          <Link to="/products" className="btn btn-primary btn-lg px-4">Explore Products</Link>
-          <Link to="/about" className="btn btn-outline-light btn-lg px-4">Learn More</Link>
+    {/* Animated & Unique Hero Section */}
+    <section className="hero-section bg-primary text-white py-5 position-relative overflow-hidden">
+      <div className="animated-bg"></div>
+      <div className="container text-center py-5 position-relative" style={{ zIndex: 2 }}>
+        <h1 className="display-3 text-white fw-bold mb-3 fade-in-up">
+         Introducing Pranayuv
+        </h1>
+        <p className="lead mb-4 fade-in-up" style={{ animationDelay: '0.2s' }}>
+          Innovating Healthcare with Empathy and Technology
+        </p>
+        <div className="d-flex justify-content-center gap-3 fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <Link to="/products" className="btn btn-primary btn-lg px-4 shadow-lg scale-on-hover">
+            Explore Products
+          </Link>
+          <Link to="/about" className="btn btn-outline-light btn-lg px-4 shadow-lg scale-on-hover">
+            Learn More
+          </Link>
         </div>
       </div>
+      {/* Decorative SVG Wave */}
+      <div className="hero-wave">
+  <svg
+    viewBox="0 0 1440 150"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ width: '100%', height: '10vw', minHeight: 40, maxHeight: 120, display: 'block' }}
+  >
+    <defs>
+      <linearGradient id="heroWaveGradient" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#fff" stopOpacity="1" />
+        <stop offset="100%" stopColor="#f8f9fa" stopOpacity="1" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M0,80 C360,160 1080,0 1440,80 L1440,150 L0,150 Z"
+      fill="url(#heroWaveGradient)"
+      opacity="0.9"
+    />
+    <path
+      d="M0,100 C480,200 960,0 1440,100 L1440,150 L0,150 Z"
+      fill="#fff"
+      opacity="0.7"
+    >
+      <animate attributeName="d" dur="6s" repeatCount="indefinite"
+        values="
+          M0,100 C480,200 960,0 1440,100 L1440,150 L0,150 Z;
+          M0,90 C400,180 1040,20 1440,90 L1440,150 L0,150 Z;
+          M0,100 C480,200 960,0 1440,100 L1440,150 L0,150 Z
+        "
+      />
+    </path>
+  </svg>
+</div>
+
+
     </section>
 
     {/* Features */}
     <section className="py-5">
-      <div className="container">
-        <div className="text-center mb-5">
-          <h2 className="fw-bold">Our Healthcare Solutions</h2>
-          <p className="lead text-muted">Designed with care, built for impact</p>
-        </div>
-        <div className="row g-4">
-          <FeatureCard
-            icon="bi-hospital"
-            title="Patient-Centric Design"
-            description="Our products prioritize patient comfort and caregiver convenience."
-          />
-          <FeatureCard
-            icon="bi-cpu"
-            title="Smart Technology"
-            description="Integrated IoT solutions for modern healthcare challenges."
-          />
-          <FeatureCard
-            icon="bi-currency-rupee"
-            title="Affordable Solutions"
-            description="High-quality healthcare products at accessible prices."
-          />
-        </div>
-      </div>
-    </section>
+  <div className="container">
+    <div className="text-center mb-5">
+      <h2 className="fw-bold">Our Healthcare Solutions</h2>
+      <p className="lead text-muted">Designed with care, built for impact</p>
+    </div>
+    <div className="row g-4">
+      <FeatureCard
+        icon={<MdLocalHospital size={36} />}
+        title="Patient-Centric Design"
+        description="Our products prioritize patient comfort and caregiver convenience."
+      />
+      <FeatureCard
+        icon={<MdMemory size={36} />}
+        title="Smart Technology"
+        description="Integrated IoT solutions for modern healthcare challenges."
+      />
+      <FeatureCard
+        icon={<FaRupeeSign size={36} />}
+        title="Affordable Solutions"
+        description="High-quality healthcare products at accessible prices."
+      />
+    </div>
+  </div>
+</section>
+
 
     {/* Incubated At */}
     <SectionWithLogos
@@ -139,42 +186,51 @@ const Home = () => (
     />
 
     {/* Featured Blogs */}
-    <section className="py-5 bg-light">
-      <div className="container">
-        <div className="text-center mb-5">
-          <h2 className="fw-bold">Latest Updates</h2>
-          <p className="lead text-muted">Stay informed with our recent activities</p>
-        </div>
-        <div className="row g-4">
-          {featuredBlogs.map(blog => (
-            <div key={blog.id} className="col-md-4">
-              <Link to={blog.link} className="text-decoration-none">
-                <div className="card blog-card border-0 shadow-sm h-100">
-                  <div className="square-image-container">
-                    <img
-                      src={blog.image}
-                      alt={blog.content}
-                      className="square-image"
-                      onError={e => (e.target.src = 'https://via.placeholder.com/350?text=Blog+Image')}
-                    />
-                  </div>
-                  <div className="card-body">
-                    <div className="d-flex align-items-center mb-2">
-                      <i className={`bi ${blog.icon} fs-4 text-primary me-2`}></i>
-                      <span className="fw-semibold">{blog.date}</span>
-                    </div>
-                    <p className="text-muted mb-0">{blog.content}</p>
-                  </div>
+  <section className="py-5 bg-light">
+  <div className="container">
+    <div className="text-center mb-5">
+      <h2 className="fw-bold">Spotlight Stories</h2>
+      <p className="lead text-muted">Stay informed with our recent activities</p>
+    </div>
+    <div className="row g-4">
+      {featuredBlogs.map(blog => (
+        <div key={blog.id} className="col-md-4 d-flex align-items-stretch">
+          <Link to={blog.link} className="w-100 h-100">
+            <div className="card blog-card border-0 shadow-sm h-100">
+              <div className="square-image-container" style={{ height: '250px', overflow: 'hidden', borderRadius: '12px 12px 0 0' }}>
+                <img
+                  src={blog.image}
+                  alt={blog.content}
+                  className="square-image"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  onError={e => (e.target.src = 'https://via.placeholder.com/350?text=Blog+Image')}
+                />
+              </div>
+              <div className="card-body d-flex flex-column">
+                <div className="d-flex align-items-center mb-2">
+                  <i className={`bi ${blog.icon} fs-5 text-primary me-2`}></i>
+                  <span className="fw-semibold" style={{ fontSize: '0.95rem' }}>
+                    {blog.date}
+                  </span>
                 </div>
-              </Link>
+                <p className="text-muted mb-0" style={{ fontSize: '0.97rem' }}>
+                  {blog.content.length > 60 ? blog.content.slice(0, 57) + '...' : blog.content}
+                </p>
+                <div className="mt-auto" />
+              </div>
             </div>
-          ))}
+          </Link>
         </div>
-        <div className="text-center mt-5">
-          <Link to="/blog" className="btn btn-primary btn-lg px-4">View All Updates</Link>
-        </div>
-      </div>
-    </section>
+      ))}
+    </div>
+    <div className="text-center mt-5">
+      <Link to="/blog" className="btn btn-primary btn-lg px-4">
+        View All Updates
+      </Link>
+    </div>
+  </div>
+</section>
+
   </div>
 );
 
@@ -184,7 +240,7 @@ const FeatureCard = ({ icon, title, description }) => (
     <div className="card h-100 border-0 shadow-sm">
       <div className="card-body text-center p-4">
         <div className="bg-primary bg-opacity-10 text-primary rounded-circle p-3 d-inline-block mb-3">
-          <i className={`bi ${icon} fs-3`}></i>
+          {icon}
         </div>
         <h3 className="h5">{title}</h3>
         <p className="text-muted">{description}</p>
