@@ -204,15 +204,16 @@ const Contact = () => {
                 </h5>
                 <div className="ratio ratio-4x3 rounded" style={{ overflow: 'hidden' }}>
                   <iframe
-                    src="https://www.google.com/maps?q=Vijayawada,+Andhra+Pradesh+520001&output=embed"
-                    title="Office Location"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
+  src="https://www.google.com/maps?q=16.4821158,80.6913732&z=17&output=embed"
+  title="Velagapudi Ramakrishna Siddhartha Engineering College Location"
+  width="100%"
+  height="100%"
+  style={{ border: 0 }}
+  allowFullScreen=""
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+></iframe>
+
                 </div>
               </div>
             </div>
