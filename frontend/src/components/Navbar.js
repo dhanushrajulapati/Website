@@ -32,7 +32,7 @@ const Navbar = () => {
   const handleNavClick = () => setMenuOpen(false);
 
   return (
-    <nav className="bg-blue-900 shadow-md sticky top-0 z-50 font-sans">
+    <nav className="bg-gray-50 shadow-md sticky top-0 z-50 font-sans">
       <div className="container mx-auto flex items-center justify-between px-2 py-3">
         {/* Logo and Brand */}
         <Link to="/" className="flex items-center space-x-2" onClick={handleNavClick}>
@@ -42,7 +42,7 @@ const Navbar = () => {
             className="h-10 w-10 rounded-full border-2 border-blue-600 object-cover bg-white shadow"
             onError={(e) => (e.target.src = 'https://via.placeholder.com/40?text=Logo')}
           />
-          <span className="text-2xl font-bold tracking-tight text-white">Pranayuv</span>
+          <span className="text-2xl font-bold tracking-tight text-blue-900">Pranayuv</span>
         </Link>
 
         {/* Hamburger icon for mobile */}
@@ -58,7 +58,7 @@ const Navbar = () => {
         <div
   className={`
     ${menuOpen ? 'block' : 'hidden'}
-    absolute top-16 left-0 w-full bg-blue-900 md:bg-transparent
+    absolute top-16 left-0 w-full bg-white md:bg-transparent
     md:static md:flex md:items-center md:w-auto transition-all duration-200
   `}
 >
@@ -67,7 +67,7 @@ const Navbar = () => {
       <Link
         key={link.to}
         to={link.to}
-        className="py-2 px-2 text-white hover:text-blue-600 hover:bg-blue-700 rounded transition-colors duration-150 font-medium"
+        className="py-2 px-2 text-blue-900 hover:text-blue-600 hover:bg-gray-300 rounded transition-colors duration-150 font-medium"
         onClick={handleNavClick}
       >
         {link.label}
@@ -93,7 +93,7 @@ const Navbar = () => {
       <>
         <Link
           to="/login"
-          className="py-2 px-2 text-white hover:text-blue-600 hover:bg-blue-700 rounded transition-colors duration-150 font-medium"
+          className="py-2 px-2 text-blue-900 hover:text-blue-600 hover:bg-gray-300 rounded transition-colors duration-150 font-medium"
           onClick={handleNavClick}
         >
           Login
